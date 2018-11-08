@@ -15,8 +15,37 @@
 {#    hr表示横线#}
     <p class="detail_content">
     {{ data.content }}
-    <hr>
     </p>
+     <hr>
+    <h4>评论({{data.answers }}):</h4>
+    <div class="pinglun-group">
+    <form action="{{ url_for('comment') }}" method="post">
+
+    <div class="form-group">
+        <input type="hidden" name="question_id" value="{{ data.id }}">
+        <input name="comment"  type="text" class="form-control" placeholder="请输入评论">
+    </div>
+        <div style="text-align: right">
+            <button style="text-align: right" type="submit" class="btn btn-info">立即评论</button>
+        </div>
+
+    </form>
+    <ul class="user_group">
+        {% for answer in data.answers %}
+            <li class="li-style">
+            <div class="user_info">
+                <img class="user_icon" src="{{ url_for('static',filename='images/logo.jpg') }}"/>
+                <span class="username">{{ answer.auth.username }}</span>
+                 <span class="user_create_time">{{ answer.create_time }}</span>
+            </div>
+            <p class="user_content">
+                {{ answer.comment }}
+            </p>
+
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
 
 
 {% endblock %}

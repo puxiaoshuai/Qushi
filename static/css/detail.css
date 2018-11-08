@@ -4,3 +4,31 @@
 .detail-time{
     margin-left: 20px;
 }
+ul{
+    list-style: none;
+}
+.li-style{
+    border-bottom: 1px solid #f3f8ff;
+    overflow: hidden;
+    padding: 20px 0px;/*上下20，左右0*/
+    /*overflow hidden清除浮动*/
+}
+.user_icon{
+
+    width: 40px;
+    height: 40px;
+}
+.user_group{
+    padding-left: 0px;
+}
+.username{
+    color: #9b9b9b;
+    margin-left: 20px;
+}
+.user_info{
+    margin-bottom: 10px;
+}
+.user_create_time{
+    text-align: right;
+    float: right;
+}

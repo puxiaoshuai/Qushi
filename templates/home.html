@@ -7,7 +7,9 @@
 {% endblock %}
 {% block content %}
     <ul class="question-list-group">
- {% for acticle in questions %}
+    {% if questions %}
+
+    {% for acticle in questions %}
             <li class="li-style">
                 <div class="avatar-group">
                     <img class="avatar" src="{{ url_for('static',filename='images/icon1.jpg') }}">
@@ -22,5 +24,9 @@
                 </div>
             </li>
         {% endfor %}
+        {% else %}
+        <h3>暂无数据，赶快上传吧...</h3>
+    {% endif %}
+
     </ul>
 {% endblock %}
