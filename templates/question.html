@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/acticle.css") }}">
+{% endblock %}
+{% block title %}
+    发表问答
+{% endblock %}
+{% block content %}
+    <div class="acticle">
+       <h3 class="title_center">发布趣事</h3>
+    <form action="" method="POST">
+            <div class="form-group">
+                <input name="title" type="text" class="form-control"  placeholder="标题">
+            </div>
+            <div class="form-group">
+               <textarea name="content" class="form-control" rows="6" placeholder="内容"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">立即发布</button>
+        {#button是行元素，要右对齐的话，在块状中设置text_aglin#}
+        </form>
+    </div>
+{% endblock %}

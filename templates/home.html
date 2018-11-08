@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/index.css") }}">
+{% endblock %}
+{% block title %}
+    登录
+{% endblock %}
+{% block content %}
+    <ul class="question-list-group">
+ {% for acticle in questions %}
+            <li class="li-style">
+                <div class="avatar-group">
+                    <img class="avatar" src="{{ url_for('static',filename='images/icon1.jpg') }}">
+                </div>
+                <div class="question-group">
+                    <p class="question_title"><a href="{{ url_for('detail',question_id=acticle.id)}}">{{ acticle.title }}</a></p>
+                    <p class="question_content">{{ acticle.content }}</p>
+                    <div class="question-info">
+                        <span class="question-author">{{ acticle.author.username }}</span>
+                        <span class="question-time">{{ acticle.create_time }}</span>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

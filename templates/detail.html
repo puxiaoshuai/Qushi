@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/detail.css") }}">
+{% endblock %}
+{% block title %}
+    详情
+{% endblock %}
+{% block content %}
+    <h3 class="title_center">{{ data.title }}</h3>
+    <p class="detail-info">
+     <span>作者：{{ data.author.username }}</span><span class="detail-time">时间:{{ data.create_time }}</span>
+
+    </p>
+    <hr>
+{#    hr表示横线#}
+    <p class="detail_content">
+    {{ data.content }}
+    <hr>
+    </p>
+
+
+{% endblock %}

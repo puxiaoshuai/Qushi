@@ -1,0 +1,13 @@
+.navbar-brand img{
+    width: 24px;
+}
+.main{
+    background: #ffff;
+    width: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+}
+.title_center{
+    text-align: center;
+}

@@ -1,0 +1,33 @@
+ul{
+    list-style: none;
+}
+.avatar-group{
+    width: 60px;
+    height: 100%;
+    float: left;/*浮动，进行左右排列，宽度太宽就就从下一行来排列*/
+}
+.avatar-group .avatar{
+    width: 60px;
+    height: 60px;
+}
+.li-style{
+    border-bottom: 1px solid #f3f8ff;
+    overflow: hidden;
+    padding: 20px 0px;/*上下20，左右0*/
+    /*overflow hidden清除浮动*/
+}
+.question-group{
+    float: left;
+    width: 560px;
+    margin-left: 32px;
+}
+.question_title a{
+  color: #ffa31d;
+    font-size: 16px;
+}
+.question-info{
+    text-align: right;
+}
+.question-time{
+    margin-left: 20px;
+}
