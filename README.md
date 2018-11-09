@@ -25,4 +25,5 @@
 - 在config.py中更改数据库密码
 - 执行 python manage.py db upgrade ,就能生成表了
 - 运行 flaskdemo.py  (pychorm下直接点运行)
+-------------------------------------
 
