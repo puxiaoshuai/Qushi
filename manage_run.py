@@ -18,6 +18,11 @@ def index():
     return render_template('home.html', **content)
 
 
+@app.route('/test')
+def test():
+    return render_template('usercenter.html')
+
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -99,7 +104,7 @@ def question():
 @app.route('/detail/<question_id>')
 def detail(question_id):
     detail_info = Question.query.filter(Question.id == question_id).first()
-    #直接能获得文章的所以的评论  backref ==> .answers
+    # 直接能获得文章的所以的评论  backref ==> .answers
     return render_template('detail.html', data=detail_info)
 
 
@@ -117,8 +122,8 @@ def comment():
         answer.question = questionData
         db.session.add(answer)
         db.session.commit()
-        #重新加载详情界面
-        return redirect(url_for('detail',question_id=question_id))
+        # 重新加载详情界面
+        return redirect(url_for('detail', question_id=question_id))
 
 
 if __name__ == '__main__':
