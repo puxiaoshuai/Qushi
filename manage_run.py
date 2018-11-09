@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+
+from myforms import RegisterForm
 from models import User, Question, Answer
 from exts import db
 import config
@@ -18,8 +20,8 @@ def index():
     return render_template('home.html', **content)
 
 
-@app.route('/test')
-def test():
+@app.route('/usercenter')
+def user_center():
     return render_template('usercenter.html')
 
 
@@ -48,9 +50,14 @@ def logout():
     return redirect(url_for('login'))
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error404.html'), 404
+
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    if request.method == "GET":
+    """if request.method == "GET":
         return render_template('register.html')
     else:
         telephone = request.form.get('telephone')
@@ -70,6 +77,28 @@ def register():
                 db.session.commit()
                 # 成功之后，跳转到登录界面
                 return redirect(url_for('login'))
+                """
+    if request.method == "GET":
+        form = RegisterForm(request.form)
+        return render_template('register.html',form=form)
+    elif request.method == "POST":
+        form = RegisterForm(request.form)
+        if form.validate():
+            telephone = request.form.get('telephone')
+            username = request.form.get('username')
+            password1 = request.form.get('password1')
+            user = User.query.filter(User.telephone == telephone).first()
+            if user:
+                return u"改手机号码已被注册"
+            else:
+                user = User(telephone=telephone, username=username, password=password1)
+                db.session.add(user)
+                db.session.commit()
+                # 成功之后，跳转到登录界面
+                return redirect(url_for('login'))
+        else:
+            print(form.errors)
+    return render_template('register.html',form=form)
 
 
 @app.context_processor
@@ -127,4 +156,4 @@ def comment():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=1100)
