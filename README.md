@@ -5,7 +5,7 @@
 - 登录，注册功能。保存数据到数据库中
 - 上传趣事，保存内容到数据库
 - 详情中，能添加评论
-待优化：对登录，注册，上传信息的验证
+待优化：对登录，注册，上传信息的验证,搜索，个人中心，分页，这些都可以自己后面在扩充
 ![发布.png](https://upload-images.jianshu.io/upload_images/4908477-c22d88bfb62162ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![详情.png](https://upload-images.jianshu.io/upload_images/4908477-9e14fbe2d397281e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ## 知识点
@@ -14,6 +14,7 @@
 - 数据的查询过滤
 - 装饰器，限制登录
 - html 排版布局
+- html 模板继承
 - 上下文处理钩子函数
 - jinji2模板基本使用
 - flask-scripts  命令管理
