@@ -16,4 +16,13 @@
 - html 排版布局
 - 上下文处理钩子函数
 - jinji2模板基本使用
+- flask-scripts  命令管理
+...
+#  使用方式
+- git  clone 当前项目
+- 虚拟环境下 pip install -r requirements.txt
+- 在本地创建自己的数据库qushi
+- 在config.py中更改数据库密码
+- 执行 python manage.py db upgrade ,就能生成表了
+- 运行 flaskdemo.py  (pychorm下直接点运行)
 
